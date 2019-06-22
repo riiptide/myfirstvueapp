@@ -1,7 +1,9 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
+      <h1><a v-bind:href="link">{{ msg }} </a></h1>
+      <button v-on:click="changeMessage">Change Message</button>
+
+      <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
       <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
@@ -34,8 +36,18 @@
 export default {
   name: 'HelloWorld',
   props: {
-    msg: String
-  }
+      //msg: String,
+      link: String
+  },
+    data: function () {
+        return {msg: "My name is Doof"};
+    },
+
+    methods: {
+        changeMessage: function () {
+            this.msg = "And  you'll do what I say";
+        }
+    }
 }
 </script>
 
